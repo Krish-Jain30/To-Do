@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Minimal To‑Do</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="wrap">
+    <main class="card" aria-labelledby="app-title">
+      <header>
+        <div>
+          <h1 id="app-title">To‑Do</h1>
+          <div class="muted">Minimal. Fast. Local.</div>
+        </div>
+        <button id="clearCompleted" class="ghost" title="Clear completed tasks">Clear done</button>
+      </header>
+
+      <form class="add" id="addForm" autocomplete="off">
+        <label class="sr-only" for="newTask">Add a task</label>
+        <input id="newTask" name="newTask" type="text" placeholder="Add a task…" minlength="1" maxlength="200" />
+        <button class="primary" type="submit">Add</button>
+      </form>
+
+      <ul id="list" role="list" aria-live="polite"></ul>
+      <div id="empty" class="empty" hidden>Nothing here yet. Add your first task ↑</div>
+
+      <div class="footer">
+        <div class="left"><span id="count">0</span> open</div>
+        <div class="right">
+          <button id="exportBtn" class="ghost" title="Export tasks as JSON">Export</button>
+          <button id="importBtn" class="ghost" title="Import tasks from JSON">Import</button>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <template id="itemTemplate">
+    <li class="item">
+      <input type="checkbox" class="toggle" aria-label="Toggle complete" />
+      <div class="title"></div>
+      <div class="actions">
+        <button class="ghost edit" aria-label="Edit task">Edit</button>
+        <button class="ghost delete" aria-label="Delete task">Delete</button>
+      </div>
+    </li>
+  </template>
+
+  <script src="script.js"></script>
+</body>
+</html>

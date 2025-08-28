@@ -1,0 +1,142 @@
+:root {
+      --bg: #f7f7f8;
+      --card: #ffffff;
+      --text: #111113;
+      --muted: #6b7280;
+      --line: #e5e7eb;
+      --accent: #111113; /* keep it neutral, not vibrant */
+      --radius: 16px;
+      --shadow: 0 6px 24px rgba(0,0,0,.06);
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #0b0c0f;
+        --card: #111318;
+        --text: #e7e7ea;
+        --muted: #9aa3b2;
+        --line: #23262d;
+        --accent: #e7e7ea;
+        --shadow: 0 6px 24px rgba(0,0,0,.4);
+      }
+    }
+
+    * { box-sizing: border-box; }
+    html, body { height: 100%; }
+    body {
+      margin: 0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+      background: var(--bg);
+      color: var(--text);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    .wrap {
+      min-height: 100%;
+      display: grid;
+      place-items: center;
+      padding: 24px;
+    }
+
+    .card {
+      width: 100%;
+      max-width: 640px;
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 20px 20px 16px;
+    }
+
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+
+    h1 {
+      font-size: 20px;
+      line-height: 1.2;
+      margin: 0;
+      font-weight: 650;
+      letter-spacing: -0.01em;
+    }
+    .muted { color: var(--muted); font-size: 13px; }
+
+    form.add {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 10px;
+      margin: 8px 0 12px;
+    }
+
+    input[type="text"] {
+      width: 100%;
+      border: 1px solid var(--line);
+      background: transparent;
+      color: var(--text);
+      border-radius: 12px;
+      padding: 12px 14px;
+      font-size: 14px;
+      outline: none;
+    }
+    input[type="text"]:focus { border-color: var(--accent); box-shadow: 0 0 0 3px rgba(0,0,0,.06); }
+
+    button {
+      appearance: none;
+      border: 1px solid var(--line);
+      background: transparent;
+      color: var(--text);
+      border-radius: 12px;
+      padding: 10px 14px;
+      font-size: 14px;
+      cursor: pointer;
+    }
+    button:focus { outline: 2px solid transparent; box-shadow: 0 0 0 3px rgba(0,0,0,.08); }
+    button.primary { border-color: var(--accent); }
+    button.ghost { border-color: var(--line); }
+
+    ul#list { list-style: none; padding: 0; margin: 0; }
+
+    .item {
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      align-items: center;
+      gap: 12px;
+      padding: 10px 8px;
+      border-top: 1px dashed var(--line);
+    }
+    .item:first-child { border-top: 1px solid var(--line); }
+
+    .item input[type="checkbox"] { width: 18px; height: 18px; }
+
+    .title {
+      min-width: 0;
+      font-size: 15px;
+      line-height: 1.4;
+      word-break: break-word;
+    }
+    .title.completed { color: var(--muted); text-decoration: line-through; }
+
+    .actions { display: flex; gap: 6px; }
+    .actions button { padding: 6px 10px; font-size: 13px; }
+
+    .empty {
+      text-align: center;
+      padding: 18px 8px 8px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .footer {
+      display: flex; align-items: center; justify-content: space-between; gap: 8px;
+      border-top: 1px solid var(--line);
+      margin-top: 16px; padding-top: 12px;
+      font-size: 13px; color: var(--muted);
+    }
+    .footer .left { display: flex; gap: 12px; align-items: center; }
+    .footer button { font-size: 12px; padding: 6px 10px; }
+
+    .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
